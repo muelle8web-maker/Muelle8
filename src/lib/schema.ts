@@ -2,9 +2,6 @@ import { BUSINESS, SITE_URL, MAPS_URL } from "./business";
 import { menuCategories } from "./menu-data";
 
 // schema.org JSON-LD builders. Rendered via the JsonLd component in layout and pages.
-// NOTE: telephone is intentionally omitted until the real business line
-// replaces the placeholder in business.ts — shipping a fictional (555)
-// number in schema would poison Google/AI knowledge of the business.
 
 export const restaurantSchema = {
   "@context": "https://schema.org",
@@ -14,6 +11,7 @@ export const restaurantSchema = {
   image: [`${SITE_URL}/logo.jpg`],
   logo: `${SITE_URL}/logo.jpg`,
   url: SITE_URL,
+  telephone: BUSINESS.phone,
   email: BUSINESS.email,
   description: `Baja-inspired seafood counter serving ceviche, aguachile, seafood cocktails, and tiradito, located inside ${BUSINESS.address.venue} food hall in ${BUSINESS.address.city}, ${BUSINESS.address.region}.`,
   servesCuisine: ["Baja Mexican Seafood", "Seafood", "Mexican"],
