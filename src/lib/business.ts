@@ -4,7 +4,7 @@
 
 // TODO: replace with the real production domain before launch
 // (also referenced by src/app/sitemap.ts and src/app/robots.ts).
-export const SITE_URL = "https://muelle8.com";
+export const SITE_URL = "https://muelle8seafood.com";
 
 export const BUSINESS = {
   name: "Muelle 8",
@@ -13,7 +13,7 @@ export const BUSINESS = {
   // (555) numbers are fictional — this must never reach production, schema, or GBP.
   phone: "+1-555-123-4567",
   phoneDisplay: "(555) 123-4567",
-  email: "info@muelle8.com",
+  email: "info@muelle8seafood.com",
   address: {
     venue: "Market on 8th",
     // Keep "Ste 115" in EVERY address mention — it is the disambiguator
