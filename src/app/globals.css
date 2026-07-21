@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Core brand palette from design.md */
+  --color-background: #F4F6F8;
+  --color-foreground: #0B2035;
+  
+  --color-primary: #0B2035;
+  --color-primary-foreground: #FFFFFF;
+  
+  --color-secondary: #FFFFFF;
+  --color-secondary-foreground: #0B2035;
+  
+  /* Baja sunset coral accent (see design.md) — plays the role of Rubio's yellow */
+  --color-accent: #FF7E67;
+  --color-accent-foreground: #0B2035;
+  --color-accent-dark: #E8654E;
+
+  --color-sand: #E6D5B8;
+
+  --color-muted: #E2E8F0;
+  --color-muted-foreground: #64748B;
+
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #0B2035;
+  
+  /* Radii for a crisp, minimal look */
+  --radius-lg: 0.5rem;
+  --radius-md: 0.25rem;
+  --radius-sm: 0.125rem;
+
+  /* Exaggerated Typography settings */
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Force light mode to prevent OS-level dark mode inversion from muddying the brand */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    /* Inter is default body font */
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Utilities for Exaggerated Minimalism */
+@utility text-giant {
+  font-size: clamp(3rem, 10vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+@utility text-huge {
+  font-size: clamp(2rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
