@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 // TODO: replace with the real production domain before launch.
 const BASE_URL = "https://muelle8.com";
 
