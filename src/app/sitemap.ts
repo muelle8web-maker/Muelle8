@@ -48,7 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // /order intentionally omitted: currently a thin placeholder page.
     // Add it here once the real ordering flow ships with substantive,
     // unique content (menu items, pricing, checkout steps, etc).
-    // /sign-in intentionally omitted: auth pages should not be indexed
-    // (see robots.ts, which also disallows crawling it).
   ];
 }

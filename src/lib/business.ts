@@ -9,10 +9,8 @@ export const SITE_URL = "https://muelle8seafood.com";
 export const BUSINESS = {
   name: "Muelle 8",
   tagline: "Baja Inspired Seafood",
-  // TODO: replace placeholder phone with the real business line before launch.
-  // (555) numbers are fictional — this must never reach production, schema, or GBP.
-  phone: "+1-555-123-4567",
-  phoneDisplay: "(555) 123-4567",
+  phone: "+1-619-210-5231",
+  phoneDisplay: "(619) 210-5231",
   email: "info@muelle8seafood.com",
   address: {
     venue: "Market on 8th",
@@ -36,3 +34,10 @@ export const BUSINESS = {
 export const ADDRESS_LINE = `${BUSINESS.address.venue}, ${BUSINESS.address.street}, ${BUSINESS.address.city}, ${BUSINESS.address.region} ${BUSINESS.address.zip}`;
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${BUSINESS.geo.lat},${BUSINESS.geo.lng}`;
+
+// Formspree Form IDs for client-side submissions.
+// Replace these placeholders with your actual Formspree form IDs (from your Formspree dashboard).
+export const FORMSPREE = {
+  contactId: "xzbryrpo", // Replace with your Formspree contact form ID
+  cateringId: "xzbryrpo", // Replace with your Formspree catering form ID
+} as const;

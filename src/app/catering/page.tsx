@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import { FORMSPREE } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Catering — Baja Seafood for Events",
@@ -33,32 +34,32 @@ export default function CateringPage() {
             Fill out the form below and our team will get back to you within 24 hours to plan your perfect menu.
           </p>
 
-          <form className="space-y-8">
+          <form action={`https://formspree.io/f/${FORMSPREE.cateringId}`} method="POST" className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Full Name</label>
-                <input type="text" id="name" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="John Doe" required />
+                <input type="text" id="name" name="name" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="John Doe" required />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Email Address</label>
-                <input type="email" id="email" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="john@example.com" required />
+                <input type="email" id="email" name="email" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="john@example.com" required />
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex flex-col gap-2">
                 <label htmlFor="date" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Event Date</label>
-                <input type="date" id="date" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter" required />
+                <input type="date" id="date" name="date" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter" required />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="guests" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Estimated Guests</label>
-                <input type="number" id="guests" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="50" required />
+                <input type="number" id="guests" name="guests" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="50" required />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="details" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Event Details & Requests</label>
-              <textarea id="details" rows={5} className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40 resize-none" placeholder="Tell us about your event..." required></textarea>
+              <textarea id="details" name="details" rows={5} className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40 resize-none" placeholder="Tell us about your event..." required></textarea>
             </div>
 
             <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold font-montserrat text-lg py-4 rounded-full hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300 shadow-md uppercase tracking-wider mt-4">

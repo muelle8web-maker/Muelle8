@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import { BUSINESS, MAPS_URL } from "@/lib/business";
+import { BUSINESS, MAPS_URL, FORMSPREE } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Contact & Location — Market on 8th, National City",
@@ -104,18 +104,18 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="bg-white p-8 md:p-12 rounded-3xl border border-border shadow-sm">
             <h3 className="font-montserrat font-bold text-3xl mb-8 text-foreground uppercase">Send a Message</h3>
-            <form className="space-y-6">
+            <form action={`https://formspree.io/f/${FORMSPREE.contactId}`} method="POST" className="space-y-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Name</label>
-                <input type="text" id="name" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="Jane Doe" required />
+                <input type="text" id="name" name="name" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="Jane Doe" required />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Email</label>
-                <input type="email" id="email" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="jane@example.com" required />
+                <input type="email" id="email" name="email" className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40" placeholder="jane@example.com" required />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="font-montserrat font-semibold text-sm text-foreground uppercase tracking-wide">Message</label>
-                <textarea id="message" rows={5} className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40 resize-none" placeholder="How can we help?" required></textarea>
+                <textarea id="message" name="message" rows={5} className="bg-muted border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-inter placeholder:text-foreground/40 resize-none" placeholder="How can we help?" required></textarea>
               </div>
               <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold font-montserrat text-lg py-4 rounded-full hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300 shadow-md uppercase tracking-wider mt-4">
                 Send Message

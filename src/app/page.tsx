@@ -8,32 +8,9 @@ import { featuredItems } from "@/lib/menu-data";
 export default function Home() {
   return (
     <div className="min-h-screen pb-0">
-      {/* 1. Full-Width Hero Carousel & Rewards Banner */}
+      {/* 1. Full-Width Hero Carousel */}
       <section className="relative w-full">
         <HeroCarousel />
-
-        {/* Rewards Banner (Overlapping bottom edge) */}
-        <div className="w-full bg-primary relative h-auto md:h-28 flex flex-col md:flex-row items-center justify-between px-8 md:px-16 lg:px-24 py-6 md:py-0 border-t-4 border-accent">
-          {/* Whale-tail logo badge overlapping the banner edge */}
-          <div className="hidden lg:block absolute left-8 -top-16 w-32 h-32 rounded-full overflow-hidden shadow-xl border-4 border-accent bg-white">
-             <Image src="/logo.jpg" alt="Muelle 8 Rewards" fill sizes="128px" className="object-cover" />
-          </div>
-          
-          <div className="lg:pl-40 flex-1">
-            <h2 className="font-montserrat font-black text-accent uppercase text-xl md:text-2xl leading-tight">
-              SIGN UP FOR REWARDS AND EARN POINTS<br />FOR FREE MUELLE 8!
-            </h2>
-          </div>
-          
-          <div className="flex items-center gap-6 mt-6 md:mt-0">
-            <Link href="/sign-in" className="font-montserrat font-black text-white uppercase text-sm hover:text-accent transition-colors tracking-widest">
-              SIGN IN
-            </Link>
-            <Link href="/sign-in#create-account" className="bg-accent text-accent-foreground px-6 py-3 font-montserrat font-black uppercase tracking-wider text-sm hover:bg-accent-dark transition-colors">
-              CREATE AN ACCOUNT
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* Nautical wave divider: navy banner rolls into the off-white section */}
