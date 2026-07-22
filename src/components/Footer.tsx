@@ -85,7 +85,20 @@ export default function Footer() {
 
         {/* Absolute Bottom Links */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 font-inter text-[10px] text-white/50 tracking-wider">
-          <p>Copyright © {new Date().getFullYear()} Muelle 8 LLC. All Rights reserved.</p>
+          <div>
+            <p>Copyright © {new Date().getFullYear()} Muelle 8 LLC. All Rights reserved.</p>
+            <p className="mt-1">
+              Built by{" "}
+              <a
+                href="https://technologyconsultants.ventures"
+                target="_blank"
+                rel="nofollow sponsored"
+                className="hover:text-white transition-colors"
+              >
+                Technology Consultants Ventures
+              </a>
+            </p>
+          </div>
           <div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">Do Not Sell My Personal Information</Link>
             <Link href="#" className="hover:text-white transition-colors">Website Accessibility</Link>
