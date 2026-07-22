@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const SLIDE_COUNT = 3;
+const SLIDE_COUNT = 4;
 const ROTATE_MS = 10000;
 
 export default function HeroCarousel() {
@@ -32,22 +32,62 @@ export default function HeroCarousel() {
       aria-roledescription="carousel"
       aria-label="Featured promotions"
     >
-      {/* Slide 1 — A Taste of Baja (coastal brand slide) */}
+      {/* Slide 1 — Stone Brewery Collaboration */}
       <div className={slideClass(0)} aria-hidden={index !== 0}>
+        <Image
+          src="/images/stone-collab.jpg"
+          alt="Muelle 8 x Stone Brewery craft beer and Baja tacos collaboration"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-90 object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent" />
+        <div className="absolute inset-0 z-10 flex flex-col justify-center px-8 md:px-16 lg:px-24">
+          <div className="max-w-4xl">
+            <span className="inline-block bg-accent text-accent-foreground font-montserrat font-black uppercase text-xs md:text-sm px-4 py-2 -rotate-2 shadow-lg mb-4 tracking-wider">
+              🔥 LIMITED COLLAB
+            </span>
+            <h1 className="font-montserrat font-black text-5xl md:text-7xl lg:text-[92px] text-white leading-[0.88] uppercase tracking-tighter drop-shadow-xl mb-4">
+              MUELLE 8 <br />
+              <span className="text-accent">× STONE BREWING</span>
+            </h1>
+            <p className="font-inter text-white/90 text-lg md:text-xl max-w-xl mb-8 leading-relaxed drop-shadow-md">
+              Baja Tacos & Stone Brews on Tap. The ultimate craft pairing in San Diego.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/order"
+                className="inline-block bg-accent text-accent-foreground px-10 py-4 font-montserrat font-black uppercase tracking-wider text-sm lg:text-base shadow-xl hover:bg-accent-dark transition-colors"
+              >
+                ORDER NOW
+              </Link>
+              <Link
+                href="/menu"
+                className="inline-block bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 font-montserrat font-black uppercase tracking-wider text-sm lg:text-base hover:bg-white/20 transition-colors"
+              >
+                VIEW TAP & TACO MENU
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Slide 2 — A Taste of Baja (coastal brand slide) */}
+      <div className={slideClass(1)} aria-hidden={index !== 1}>
         <Image
           src="/images/hero.jpg"
           alt="Baja California coastline at sunset"
           fill
           sizes="100vw"
           className="object-cover opacity-80"
-          priority
         />
-        <div className="absolute inset-0 bg-linear-to-r from-primary/80 via-primary/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/30 to-transparent" />
         <div className="absolute inset-0 z-10 flex flex-col justify-center px-8 md:px-16 lg:px-24">
           <div className="max-w-4xl">
-            <h1 className="font-montserrat font-black text-6xl md:text-8xl lg:text-[110px] text-secondary leading-[0.85] uppercase tracking-tighter drop-shadow-lg">
+            <h2 className="font-montserrat font-black text-6xl md:text-8xl lg:text-[110px] text-secondary leading-[0.85] uppercase tracking-tighter drop-shadow-lg">
               A TASTE<br /><span className="text-accent">OF BAJA</span>
-            </h1>
+            </h2>
             <div className="mt-8">
               <Link href="/order" className="inline-block bg-accent text-accent-foreground px-10 py-4 font-montserrat font-black uppercase tracking-wider text-sm lg:text-base shadow-xl hover:bg-accent-dark transition-colors">
                 ORDER NOW
@@ -57,8 +97,8 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Slide 2 — Feed Your Crew (catering, navy field) */}
-      <div className={`${slideClass(1)} bg-primary`} aria-hidden={index !== 1}>
+      {/* Slide 3 — Feed Your Crew (catering, navy field) */}
+      <div className={`${slideClass(2)} bg-primary`} aria-hidden={index !== 2}>
         {/* subtle wave texture */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.06]" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true">
           {[0, 1, 2, 3, 4, 5, 6].map((row) => (
@@ -96,8 +136,8 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      {/* Slide 3 — $7+ Lunch Menu (light promo slide) */}
-      <div className={`${slideClass(2)} bg-[#F4F6F8]`} aria-hidden={index !== 2}>
+      {/* Slide 4 — $7+ Lunch Menu (light promo slide) */}
+      <div className={`${slideClass(3)} bg-[#F4F6F8]`} aria-hidden={index !== 3}>
         {/* flanking dish circles, bleeding off-canvas like cutouts */}
         <div className="absolute -left-24 -top-24 w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-xl -rotate-6">
           <Image src="/images/tacos.jpg" alt="Baja fish tacos" fill sizes="384px" className="object-cover" />
@@ -132,7 +172,7 @@ export default function HeroCarousel() {
             className={`w-3 h-3 rounded-full border-2 transition-colors ${
               index === i
                 ? "bg-accent border-accent"
-                : `bg-transparent ${index === 2 ? "border-primary/50 hover:border-primary" : "border-white/60 hover:border-white"}`
+                : `bg-transparent ${index === 3 ? "border-primary/50 hover:border-primary" : "border-white/60 hover:border-white"}`
             }`}
           />
         ))}
